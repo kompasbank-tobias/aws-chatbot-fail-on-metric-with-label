@@ -1,0 +1,38 @@
+Resources:
+  ValidAlarm22A073C4:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      EvaluationPeriods: 1
+      MetricName: ValidMetric
+      Namespace: SomeNS
+      Period: 300
+      Statistic: Average
+      Threshold: 1
+    Metadata:
+      aws:cdk:path: MetricAlarmStack/ValidAlarm/Resource
+  InvalidAlarmB1C1746B:
+    Type: AWS::CloudWatch::Alarm
+    Properties:
+      ComparisonOperator: GreaterThanOrEqualToThreshold
+      EvaluationPeriods: 1
+      Metrics:
+        - Id: m1
+          Label: Some label used on a graph
+          MetricStat:
+            Metric:
+              MetricName: InvalidMetric
+              Namespace: SomeOtherNS
+            Period: 300
+            Stat: Average
+          ReturnData: true
+      Threshold: 1
+    Metadata:
+      aws:cdk:path: MetricAlarmStack/InvalidAlarm/Resource
+  CDKMetadata:
+    Type: AWS::CDK::Metadata
+    Properties:
+      Analytics: v2:deflate64:H4sIAAAAAAAA/yXKPQ7CMAxA4bN0T12CGGAD9QblBJFjRPoTS7ZDhyh3R5TpveHz4M83OHX3sGuPcRkqshDUpwVc3MhZTQqaG195IuUiSM0dduUS92D4hvpYg2w/ckxrLnMkmHX4+Av4K/hu1pR6KdnSRjD9+wXwNpo3ewAAAA==
+    Metadata:
+      aws:cdk:path: MetricAlarmStack/CDKMetadata/Default
+
